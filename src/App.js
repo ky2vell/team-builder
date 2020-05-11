@@ -21,11 +21,13 @@ function App() {
       <Container>
         <Row>
           <Col md='12'>
+            <h1 className='mb-3'>Join the Team!</h1>
             <FormField />
           </Col>
         </Row>
         <Row>
           <Col md='12'>
+            <h1 className='mb-4 text-center'>Team Members</h1>
             <Row>
               {data.slice(0, 10).map(el => (
                 <Cards
