@@ -7,13 +7,17 @@ import Cards from './components/Cards';
 import './App.css';
 
 function App() {
-  const [data, setData] = useState([]);
+  const [members, setMembers] = useState([]);
   useEffect(() => {
     axios
       .get('https://breakingbadapi.com/api/characters')
-      .then(res => setData(res.data))
+      .then(res => setMembers(res.data))
       .catch(console.log);
   }, []);
+
+  const addMember = newMember => {
+    setMembers([...members, newMember]);
+  };
 
   return (
     <div className='App'>
@@ -22,14 +26,14 @@ function App() {
         <Row>
           <Col md='12'>
             <h1 className='mb-3'>Join the Team!</h1>
-            <FormField />
+            <FormField addMember={addMember} />
           </Col>
         </Row>
         <Row>
           <Col md='12'>
             <h1 className='mb-4 text-center'>Team Members</h1>
             <Row>
-              {data.slice(0, 10).map(el => (
+              {members.map(el => (
                 <Cards
                   key={el.char_id}
                   name={el.name}
