@@ -33,9 +33,9 @@ function App() {
           <Col md='12'>
             <h1 className='mb-4 text-center'>Team Members</h1>
             <Row>
-              {members.map(el => (
+              {members.map((el, i) => (
                 <Cards
-                  key={el.char_id}
+                  key={!el.char_id ? i : el.char_id}
                   name={el.name}
                   img={el.img}
                   nickname={el.nickname}
@@ -47,6 +47,7 @@ function App() {
           </Col>
         </Row>
       </Container>
+      <div id='scroll-bottom'></div>
     </div>
   );
 }

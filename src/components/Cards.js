@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardImg, CardBody, Col } from 'reactstrap';
+import { Card, CardImg, CardBody, Col, Button } from 'reactstrap';
 
 const Cards = ({ name, img, nickname, occupation, status }) => {
   return (
@@ -19,6 +19,7 @@ const Cards = ({ name, img, nickname, occupation, status }) => {
           <div>
             <b>Status:</b> {status}
           </div>
+          <Button className='mt-2'>Edit Profile</Button>
         </CardBody>
       </Card>
     </Col>
